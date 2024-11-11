@@ -5,12 +5,10 @@ import asyncio
 import aiohttp
 
 async def domain_check_parallel(domains):
-    """Check domain statuses in parallel using aiohttp and asyncio."""
     tasks = [async_domain_status_check(url) for url in domains]
     return await asyncio.gather(*tasks)
 
 def run_domain_check(domains):
-    """Run the async domain check function in an event loop."""
     return asyncio.run(domain_check_parallel(domains))
 
 # def domain_check_parallel(domains, max_workers=20):

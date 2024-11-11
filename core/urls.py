@@ -16,10 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 
-from playground.views import DomainStatus
+from playground.views import InsertUrls, DomainStatus
+
+router = DefaultRouter()
+router.register(r'insert-urls', InsertUrls, basename='initialurls')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', DomainStatus.as_view()),
+    path('', include(router.urls)),
 ]

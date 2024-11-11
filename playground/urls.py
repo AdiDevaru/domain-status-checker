@@ -1,6 +1,12 @@
-# from django.urls import path
-# from . import views
+# from django.urls import path, include
+# from rest_framework.routers import DefaultRouter
+# from .views import InsertUrls, DomainStatus
+
+# router = DefaultRouter()
+# router.register(r'initial-urls', InsertUrls, basename='initialurls')
+
 
 # urlpatterns = [
-#     path('check-domain/', views.DomainStatus.as_view()),
+#     # path('', DomainStatus.as_view()),
+#     path('', include(router.urls)),
 # ]

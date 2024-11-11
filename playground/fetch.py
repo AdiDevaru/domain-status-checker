@@ -36,8 +36,6 @@ async def async_domain_status_check(domain):
                     return {"message": "Failed with Cloudscraper", "domain": domain, "status": status_code}
                 
                 except Exception as e: return {"message": f"Unexpected error with Cloudscraper: {e}", "domain": domain, "status": None}
-                
-
             
     except asyncio.TimeoutError: return {"message": "Timeout Error - Request timed out", "domain": domain, "status": 408}
     except aiohttp.ClientConnectionError: return {"message": "Connection error", "domain": domain, "status": 503}
