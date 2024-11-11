@@ -11,8 +11,8 @@ class DomainStatus(APIView):
         domains = request.data.get("domains", [])
         try:
             results = run_domain_check(domains)
-            serializer = DomainSerializer(results, many=True)
+        # serializer = DomainSerializer(results, many=True)
         except Exception as e:
             return Response({"error": f"Internal server error: {str(e)}"}, status=500)
-        return Response(serializer.data, status=200)
+        return Response(results, status=200)
         
