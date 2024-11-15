@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from playground.views import InsertUrls, DomainStatus
+from playground.views import InsertUrls, DomainStatus, FetchStatusUrls
 
 router = DefaultRouter()
-router.register(r'insert-urls', InsertUrls, basename='initialurls')
+router.register(r'insert-urls', InsertUrls, basename='initial-urls')
+# router.register(r'check-urls', FetchStatusUrls, basename='final-urls')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('url-status/', DomainStatus.as_view()),
 ]
