@@ -5,6 +5,11 @@ from .models import InitialUrls, FinalUrls
 from .processor import run_domain_check
 
 @shared_task
+def check_domains_task(domains):
+    """Celery task to check domains."""
+    return run_domain_check(domains)
+
+@shared_task
 def fetch_status_codes():
     urls = InitialUrls.objects.filter(flag=0)
 
@@ -14,7 +19,6 @@ def fetch_status_codes():
     domains = [url_obj.url for url_obj in urls]
     results = run_domain_check(domains)
     
-    # Create FinalUrls entries in bulk
     status_data = [
         FinalUrls(
             scan_id=url_obj.scan_id,

@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from playground.views import InsertUrls, DomainStatus, FetchStatusUrls
+from playground.views import InsertUrls, DomainStatus
 
 router = DefaultRouter()
 router.register(r'insert-urls', InsertUrls, basename='initial-urls')
