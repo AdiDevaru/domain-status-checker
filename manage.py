@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-from gevent import monkey
-monkey.patch_all()
+# from gevent import monkey
+# monkey.patch_all()
 
 """Django's command-line utility for administrative tasks."""
 import os
