@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from .processor import run_domain_check
 # , run_domain_check
 from .models import InitialUrls, FinalUrls
-from .tasks import fetch_domains, fetch_status_codes
+from .tasks import fetch_status_codes
 # from .tasks import fetch_status_codes, check_domains_task
 
 # Create your views here.
@@ -18,8 +18,6 @@ class DomainStatus(APIView):
             results = run_domain_check(domains)
             # results = fetch_domains(domains, pool_size=100)
             # return Response({"status": "Pending"}, status=200)
-            # results = run_domain_check(domains)
-            # print(check_domains_task.delay(domains))
         except Exception as e:
             return Response({"error": f"Internal server error: {str(e)}"}, status=500)
         return Response(results, status=200)

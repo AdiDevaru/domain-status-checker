@@ -36,7 +36,6 @@ def fetch_domains(domains, pool_size=100):
     # pool.join()
     # results = [job.value for job in jobs]
     # return results
-    
 
 @shared_task
 def fetch_status_codes(domains):

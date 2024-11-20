@@ -10,10 +10,6 @@ import requests
 
 from .fetch import async_domain_status_check, domain_status_check
 
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/130.0.0.0 Safari/537.36 (compatible; DomainStatusChecker/1.0)"
-}
-
 def fetch_domains(domains, pool_size=100):
     results = []
     # session = requests.Session()

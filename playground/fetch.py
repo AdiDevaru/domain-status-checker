@@ -47,22 +47,22 @@ def domain_status_check(domain):
         soup = BeautifulSoup(content, "html.parser")
         page_title = soup.title.string.strip() if soup.title and soup.title.string else ""
 
-        # If error keywords are found in the title, return status as 404
+        # If error keywords are found in the title, return domain,  status as 404
         if any(keyword.lower() in page_title.lower() for keyword in error_keywords):
-            return 404
+            return domain,  404
 
-        return status_code
+        return domain,  status_code
 
-    except requests.Timeout: return 408 
-    except requests.ConnectionError: return 503  
-    except SSLError: return 526  
+    except requests.Timeout: return domain,  408 
+    except requests.ConnectionError: return domain,  503  
+    except SSLError: return domain,  526  
     
     except requests.RequestException as e:
         if hasattr(e.response, 'status_code'):
-            return e.response.status_code
-        return None  
+            return domain,  e.response.status_code
+        return domain,  None  
 
-    except Exception: return None
+    except Exception: return domain,  None
     
     # try:
     #     url = URL(domain)
@@ -77,14 +77,14 @@ def domain_status_check(domain):
     #     page_title = soup.title.string.strip() if soup.title and soup.title.string else ""
 
     #     if any(keyword.lower() in page_title.lower() for keyword in error_keywords):
-    #         return 404
+    #         return domain,  404
 
-    #     return status_code
+    #     return domain,  status_code
 
     # except Exception as e:
-    #     return None
+    #     return domain,  None
 
-async def async_domain_status_check(session, domain, max_redirects=5):    
+async def async_domain_status_check(session, domain):    
     try:
         user_agent = ua.random
         headers['User-Agent'] = user_agent
@@ -97,7 +97,7 @@ async def async_domain_status_check(session, domain, max_redirects=5):
             
             page_title = soup.title.string.strip() if soup.title and soup.title.string else ""
             
-            # return {"message": "Error page not found", "domain": domain, "status": 404}
+            # return domain,  {"message": "Error page not found", "domain": domain, "status": 404}
             if any(keyword.lower() in page_title.lower() for keyword in error_keywords): return 404
                 
             return status_code
