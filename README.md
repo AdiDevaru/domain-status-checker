@@ -11,12 +11,13 @@ This web crawler was built using Django, MySQL, and MongoDB, with task managemen
 
 Before running the project, ensure you have the following installed:
 
-- Python 3.7 or higher
-- Django
-- MySQL
-- MongoDB
-- Redis
-- Celery
+* Python ([https://www.python.org/](https://www.google.com/url?sa=E&source=gmail&q=https://www.python.org/))
+* Django ([https://www.djangoproject.com/](https://www.google.com/url?sa=E&source=gmail&q=https://www.djangoproject.com/))
+* MySQL ([https://www.mysql.com/](https://www.google.com/url?sa=E&source=gmail&q=https://www.mysql.com/))
+* MongoDB ([https://www.mongodb.com/](https://www.google.com/url?sa=E&source=gmail&q=https://www.mongodb.com/))
+* Redis ([https://redis.io/](https://www.google.com/url?sa=E&source=gmail&q=https://redis.io/))
+* Celery ([https://docs.celeryproject.org/](https://www.google.com/url?sa=E&source=gmail&q=https://docs.celeryproject.org/))
+* Python libraries defined in `requirements.txt`
 
 ## Installation
 
@@ -24,44 +25,50 @@ Before running the project, ensure you have the following installed:
 
     ```bash
     git clone https://github.com/<your-username>/<your-repo>.git
-    cd <your-repo>
+    ```
+    
+2. **Create a virtual environment and activate it:**
+    
+    ```bash
+    python3 -m venv <myenvpath>
     ```
 
-2. **Install dependencies:**
+    ```bash
+    <myenvpath>\Scripts\Activate
+    ```
 
+4. **Install the required libraries:**
+
+    Go inside main directory
+    
+    ```bash
+    cd <your-repo>
+    ```
+    
     Install the required Python packages using `pip`:
 
     ```bash
     pip install -r requirements.txt
     ```
 
-3. **Set up the MySQL database:**
+5. **Create a `.env` file in the project root directory and add the following environment variables:**
 
     Configure your MySQL database in `.env`:
-
     ```python
-    DB_NAME=<your_db_name>
-    DB_USER=<your_db_user>
-    DB_PASSWORD=<your_db_password>
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
+    DATABASE_NAME (MySQL database name)
+    DATABASE_USER (MySQL database username)
+    DATABASE_PASSWORD (MySQL database password)
+    MONGODB_CONNECTION_STRING (MongoDB connection string)
+    MONGODB_DATABASE_NAME (MongoDB database name)
+    MONGODB_COLLECTION_NAME (MongoDB collection name)
     ```
 
-4. **Set up the MongoDB connection:**
-
-    Configure your MongoDB connection in `.env`:
-
-    ```python
-    MONGO_URI=<your_mongo_connection_string>
-    MONGO_DB_NAME=<your_mongo_db_name>
-    ```
-
-5. **Run database migrations:**
-
+6. **Run database migrations:**
+    
     ```bash
     python manage.py migrate
     ```
-
+    
 ## Usage
 
 1. **Start the Redis server:**
