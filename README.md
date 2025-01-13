@@ -17,6 +17,7 @@ Before running the project, ensure you have the following installed:
 * MongoDB ([https://www.mongodb.com/](https://www.google.com/url?sa=E&source=gmail&q=https://www.mongodb.com/))
 * Redis ([https://redis.io/](https://www.google.com/url?sa=E&source=gmail&q=https://redis.io/))
 * Celery ([https://docs.celeryproject.org/](https://www.google.com/url?sa=E&source=gmail&q=https://docs.celeryproject.org/))
+* Channels ([https://channels.readthedocs.io/en/stable/](https://channels.readthedocs.io/en/stable/)) 
 * Python libraries defined in `requirements.txt`
 
 ## Installation
