@@ -1,6 +1,6 @@
 # Link Scrapper Django
 
-This web crawler was built using Django, MySQL, and MongoDB, with task management handled by Celery and Redis.
+A scalable web crawler API, built with Django REST Framework, utilizing a combination of relational and NoSQL databases. MySQL stores core crawled data, and MongoDB manages chart data for analysis. Celery, coupled with Redis, provides asynchronous task execution and reliable message queuing.
 
 ## Features
 
